@@ -10,7 +10,7 @@ module BackboneSync
         end
 
         def after_update(model)
-          @_triggered_action = :update
+          @_triggered_action ||= :update
         end
 
         def after_create(model)

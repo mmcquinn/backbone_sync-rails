@@ -30,7 +30,11 @@ BackboneSync.RailsFayeSubscriber = (function() {
     var self = this;
     return $.each(params, function(id, attributes) {
       var model = self.collection.get(id);
-      return model.set(attributes);
+      if (model) {
+        return model.set(attributes);
+      } else {
+        return model;
+      }
     });
   };
 

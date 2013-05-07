@@ -41,8 +41,7 @@ BackboneSync.RailsFayeSubscriber = (function() {
   RailsFayeSubscriber.prototype.create = function(params) {
     var self = this;
     return $.each(params, function(id, attributes) {
-      var model = new self.collection.model(attributes);
-      return self.collection.add(model);
+      return self.collection.add(attributes, {merge: true});
     });
   };
 
